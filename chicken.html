@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bhukkad Bhat — Chicken Royale</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/chicken.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main class="chicken-page">
+      <header class="top">
+        <h1 class="title">Chicken Royale</h1>
+        <p class="sub">Juicy pieces, bold masala — pick your platter</p>
+      </header>
+
+      <section class="orbit-zone" id="orbitZone">
+        <div class="center-circle">
+          <img src="assets/images/chicken-center.jpg" alt="Chicken Royale" />
+        </div>
+
+        <!-- Orbit layer 1 -->
+        <div class="orbit orbit-cw">
+          <div
+            class="orbit-item"
+            data-name="Classic Platter"
+            data-price="₹220"
+            data-ingredients="Chicken, Saffron, Garam Masala"
+          >
+            <img src="assets/images/chicken1.jpg" alt="" />
+          </div>
+          <div
+            class="orbit-item"
+            data-name="Spicy Lava"
+            data-price="₹240"
+            data-ingredients="Chili, Pepper, Coriander"
+          >
+            <img src="assets/images/chicken2.jpg" alt="" />
+          </div>
+          <div
+            class="orbit-item"
+            data-name="Mild Butter"
+            data-price="₹210"
+            data-ingredients="Ghee, Cream, Mild Spices"
+          >
+            <img src="assets/images/chicken3.jpg" alt="" />
+          </div>
+          <div
+            class="orbit-item"
+            data-name="Herb Crunch"
+            data-price="₹230"
+            data-ingredients="Herbs, Crispy Toppings"
+          >
+            <img src="assets/images/chicken4.jpg" alt="" />
+          </div>
+        </div>
+
+        <!-- Orbit layer 2 -->
+        <div class="orbit orbit-ccw">
+          <div
+            class="orbit-item shape"
+            data-name="Smoky Roast"
+            data-price="₹250"
+            data-ingredients="Smoked chicken, Garlic, Butter"
+          >
+            <img src="assets/images/chicken5.jpg" alt="" />
+          </div>
+          <div
+            class="orbit-item shape"
+            data-name="Tangy Bites"
+            data-price="₹230"
+            data-ingredients="Lemon, Pepper, Curry Leaves"
+          >
+            <img src="assets/images/chicken6.jpg" alt="" />
+          </div>
+          <div
+            class="orbit-item shape"
+            data-name="Royal Wings"
+            data-price="₹270"
+            data-ingredients="Honey, Garlic, BBQ Mix"
+          >
+            <img src="assets/images/chicken7.jpg" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <aside class="details" id="details">
+        <div class="details-card">
+          <button id="closeDetails" class="close-btn" aria-label="Close">
+            ✕
+          </button>
+          <div class="details-media" id="detailsMedia">
+            <img src="" alt="" />
+          </div>
+          <h3 id="dishName"></h3>
+          <p id="dishPrice"></p>
+          <p id="dishIngr"></p>
+          <button class="order-btn">Order 🍛</button>
+        </div>
+      </aside>
+
+      <button id="backBtn" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </main>
+    <script src="js/chicken.js"></script>
+  </body>
+</html>
+<!-- chicken1.jpg   
+2.jpg
+3.jpg aise so on
+and center vale ko chicken-center.jpg -->

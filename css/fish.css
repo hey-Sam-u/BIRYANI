@@ -1,0 +1,322 @@
+:root {
+  --bg-deep: #04202b;
+  --mid: #063244;
+  --light: #0e5063;
+  --accent: #6ee7ff;
+  --panel: rgba(255, 255, 255, 0.03);
+  --txt: #e7f7fb;
+  --card-shadow: 0 22px 60px rgba(2, 6, 23, 0.6);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(
+    180deg,
+    var(--bg-deep) 0%,
+    var(--mid) 55%,
+    var(--light) 100%
+  );
+  color: var(--txt);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* header */
+.top {
+  padding: 18px 14px 6px;
+  text-align: center;
+  z-index: 80;
+}
+.title {
+  font-size: 20px;
+  font-weight: 800;
+}
+.sub {
+  opacity: 0.85;
+  font-size: 13px;
+  margin-top: 6px;
+  color: rgba(231, 247, 251, 0.9);
+}
+
+/* scene */
+.scene {
+  position: relative;
+  height: calc(100vh - 110px);
+  overflow: hidden;
+}
+
+/* ocean light beams (pure CSS) */
+.ocean {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: radial-gradient(
+      1200px 300px at 50% 10%,
+      rgba(120, 190, 220, 0.06),
+      transparent 10%
+    ),
+    linear-gradient(180deg, rgba(6, 50, 68, 0.12), rgba(2, 20, 28, 0.35));
+  pointer-events: none;
+}
+
+/* animated vertical light streaks */
+.ocean::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 40%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, transparent 60%);
+  mix-blend-mode: overlay;
+  animation: shimmer 9s linear infinite;
+  opacity: 0.6;
+}
+@keyframes shimmer {
+  from {
+    transform: translateY(-10%);
+  }
+  to {
+    transform: translateY(10%);
+  }
+}
+
+/* portal (pure CSS circle with glow) */
+.portal-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  z-index: 40;
+  pointer-events: none;
+}
+.portal-glow {
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(110, 231, 255, 0.14) 0%,
+    transparent 45%
+  );
+  filter: blur(18px);
+}
+.portal-core {
+  position: absolute;
+  inset: 18px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(110, 231, 255, 0.06),
+    rgba(10, 40, 50, 0.6)
+  );
+  box-shadow: 0 12px 40px rgba(6, 40, 50, 0.6);
+}
+
+/* bubbles layer (soft circles) */
+.bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 255, 255, 0.03) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 80% 40%,
+      rgba(255, 255, 255, 0.02) 0 3px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(255, 255, 255, 0.015) 0 2px,
+      transparent 3px
+    );
+  opacity: 0.45;
+}
+
+/* fish group */
+.fish-group {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 60;
+  pointer-events: none;
+}
+.fish {
+  position: absolute;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--panel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 0.28s,
+    filter 0.28s;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
+  will-change: transform;
+}
+.fish img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+/* base positions (relative to center) */
+.fish:nth-child(1) {
+  transform: translate(-90px, -200px) scale(0.98);
+}
+.fish:nth-child(2) {
+  transform: translate(170px, -60px) scale(0.95);
+}
+.fish:nth-child(3) {
+  transform: translate(120px, 140px) scale(0.92);
+}
+.fish:nth-child(4) {
+  transform: translate(-160px, 100px) scale(0.94);
+}
+
+/* hover/active (desktop) & tapped (mobile) */
+.fish:hover,
+.fish.active {
+  transform: translate3d(0, 0, 0) scale(1.26) !important;
+  z-index: 120;
+  box-shadow: 0 40px 90px rgba(2, 10, 20, 0.8);
+  filter: brightness(1.06) saturate(1.05);
+}
+
+/* when chosen, dim others */
+.chosen .fish:not(.active) {
+  opacity: 0.14;
+  filter: blur(2px);
+  transform: scale(0.9);
+}
+
+/* details modal */
+.details {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px;
+  z-index: 220;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.28s ease, visibility 0.28s;
+}
+.details.show {
+  visibility: visible;
+  opacity: 1;
+}
+.details-card {
+  width: min(520px, 96%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+}
+.details-media img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 8px auto;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--txt);
+  font-size: 18px;
+}
+.order-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #022a36;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* back button */
+.back-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 16px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #012;
+  z-index: 260;
+  box-shadow: 0 10px 30px rgba(6, 90, 120, 0.15);
+  cursor: pointer;
+}
+
+/* mobile tweaks */
+@media (max-width: 700px) {
+  .portal-wrap {
+    width: 180px;
+    height: 180px;
+  }
+  .fish {
+    width: 64px;
+    height: 64px;
+  }
+  .fish:nth-child(1) {
+    transform: translate(-70px, -150px) scale(0.98);
+  }
+  .fish:nth-child(2) {
+    transform: translate(120px, -50px) scale(0.95);
+  }
+  .fish:nth-child(3) {
+    transform: translate(90px, 110px) scale(0.92);
+  }
+  .fish:nth-child(4) {
+    transform: translate(-120px, 80px) scale(0.94);
+  }
+}
+
+/* reduce-motion */
+@media (prefers-reduced-motion: reduce) {
+  .fish,
+  .portal-wrap,
+  .ocean {
+    animation: none !important;
+    transition: none !important;
+  }
+}

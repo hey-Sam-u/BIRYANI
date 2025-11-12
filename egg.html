@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Egg Fiesta — Bhukkad Bhat</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/egg.css" />
+  </head>
+  <body>
+    <main class="egg-page">
+      <header class="top">
+        <button id="backBtn" class="back-btn">← Back</button>
+        <h1 class="title">Egg Fiesta</h1>
+        <p class="sub">Soft, sunny & sizzling — choose your mood</p>
+      </header>
+
+      <section class="tray">
+        <div
+          class="egg"
+          data-name="Sunny Side Up"
+          data-price="₹80"
+          data-ing="Egg, Butter, Salt"
+        >
+          <img src="assets/images/egg1.jpg" alt="" />
+        </div>
+        <div
+          class="egg"
+          data-name="Omelette Mix"
+          data-price="₹90"
+          data-ing="Egg, Onion, Pepper"
+        >
+          <img src="assets/images/egg2.jpg" alt="" />
+        </div>
+        <div
+          class="egg"
+          data-name="Boiled Delight"
+          data-price="₹60"
+          data-ing="Egg, Spices, Salt"
+        >
+          <img src="assets/images/egg3.jpg" alt="" />
+        </div>
+        <div
+          class="egg"
+          data-name="Egg Curry"
+          data-price="₹120"
+          data-ing="Egg, Masala, Tomato"
+        >
+          <img src="assets/images/egg4.jpg" alt="" />
+        </div>
+      </section>
+
+      <!-- details popup -->
+      <aside class="details" id="details">
+        <div class="details-card">
+          <button id="closeDetails" class="close-btn">✕</button>
+          <img id="dishImg" src="" alt="" />
+          <h3 id="dishName"></h3>
+          <p id="dishPrice"></p>
+          <p id="dishIng"></p>
+          <button class="order-btn">Order 🥚</button>
+        </div>
+      </aside>
+
+      <script src="js/egg.js"></script>
+    </main>
+  </body>
+</html>
+<!-- assets/images/egg1.jpg
+assets/images/egg2.jpg
+assets/images/egg3.jpg
+assets/images/egg4.jpg -->

@@ -1,0 +1,96 @@
+:root {
+  --bg: #0f1724;
+  --accent1: #ff7a18;
+  --accent2: #ff3d81;
+  --txt: #f6f7fb;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(180deg, #071027 0%, #071018 60%);
+  color: var(--txt);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 70px;
+}
+
+/* top header */
+.top {
+  padding: 22px;
+  text-align: center;
+}
+.top h2 {
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.top p {
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+/* category section */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 0 22px;
+}
+.cat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  text-align: center;
+  padding: 18px;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+.cat-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+}
+.cat-card i {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+.cat-card span {
+  display: block;
+  font-weight: 600;
+}
+
+/* bottom navbar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-item {
+  color: #fff;
+  text-align: center;
+  flex: 1;
+  transition: 0.3s;
+}
+.nav-item i {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 4px;
+}
+.nav-item span {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+.nav-item:hover,
+.nav-item.active {
+  color: var(--accent2);
+  transform: scale(1.1);
+}
