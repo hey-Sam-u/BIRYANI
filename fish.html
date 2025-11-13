@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bhukkad Bhat — Fish Dive</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/fish.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main class="fish-page">
+      <header class="top">
+        <h1 class="title">Fish Dive</h1>
+        <p class="sub">Dive in — pick your sea delight</p>
+      </header>
+
+      <section class="scene" id="scene">
+        <!-- decorative light beams & gradient are pure CSS -->
+        <div class="ocean"></div>
+
+        <!-- portal (CSS circle) -->
+        <div class="portal-wrap" aria-hidden="true">
+          <div class="portal-glow"></div>
+          <div class="portal-core"></div>
+        </div>
+
+        <!-- floating fish group -->
+        <div class="fish-group" id="fishGroup">
+          <div
+            class="fish"
+            data-name="Grilled Pomfret"
+            data-price="₹260"
+            data-ingredients="Pomfret, Lemon, Herbs"
+          >
+            <img src="fish_1.png" alt="Grilled Pomfret" />
+          </div>
+          <div
+            class="fish"
+            data-name="Tandoori Kingfish"
+            data-price="₹320"
+            data-ingredients="Kingfish, Tandoori Masala"
+          >
+            <img src="fish_2.png" alt="Tandoori Kingfish" />
+          </div>
+          <div
+            class="fish"
+            data-name="Fiery Prawns"
+            data-price="₹300"
+            data-ingredients="Prawns, Chili, Garlic"
+          >
+            <img src="fish_1.jpg" alt="Fiery Prawns" />
+          </div>
+          <div
+            class="fish"
+            data-name="Calm Veg Fish"
+            data-price="₹200"
+            data-ingredients="Soya, Seaweed, Spices"
+          >
+            <img src="fish_4.png" alt="Calm Veg Fish" />
+          </div>
+        </div>
+
+        <!-- subtle bubbles layer (CSS) -->
+        <div class="bubbles" aria-hidden="true"></div>
+      </section>
+
+      <!-- details modal -->
+      <aside class="details" id="details" aria-hidden="true">
+        <div class="details-card" role="dialog" aria-modal="true">
+          <button id="closeDetails" class="close-btn" aria-label="Close">
+            ✕
+          </button>
+          <div class="details-media"><img id="detailsImg" src="" alt="" /></div>
+          <h3 id="detailsName">Name</h3>
+          <p id="detailsPrice" class="price">₹000</p>
+          <p id="detailsIngr" class="ingr">Ingredients</p>
+          <button id="orderBtn" class="order-btn">Order 🍛</button>
+        </div>
+      </aside>
+
+      <button id="backBtn" class="back-btn" aria-label="Back">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+    </main>
+
+    <script src="js/fish.js"></script>
+  </body>
+</html>
